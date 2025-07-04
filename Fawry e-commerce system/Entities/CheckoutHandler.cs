@@ -12,7 +12,7 @@ namespace Fawry_e_commerce_system.Entities
     internal static class CheckoutHandler
     {
 
-        public static void Checkout(Customer customer, CartEntitiy cart)
+        public static void Checkout(Customer customer, CartEntity cart)
         {
             if (cart.Cart == null || !cart.Cart.Any())
             {

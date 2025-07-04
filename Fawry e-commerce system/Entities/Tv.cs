@@ -9,10 +9,11 @@ namespace Fawry_e_commerce_system.Entities
 {
     internal class Tv : _ProductBase , IShippable
     {
-        public Tv(string Name, float Price, int Quantity) : base(Name, Price, Quantity)
+        public Tv(string Name, float Price, int Quantity,float w) : base(Name, Price, Quantity)
         {
+            Weight = w;
         }
-        public float weight;
+        private float weight;
 
         public float Weight
         {
@@ -20,7 +21,7 @@ namespace Fawry_e_commerce_system.Entities
 
             set
             {
-                if (Weight <= 0)
+                if (value <= 0)
                 {
                     do
                     {
@@ -31,7 +32,7 @@ namespace Fawry_e_commerce_system.Entities
                 }
                 else
                 {
-                    Weight = value;
+                    weight = value;
                 }
             }
         }

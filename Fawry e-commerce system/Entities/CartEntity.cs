@@ -3,7 +3,7 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace Fawry_e_commerce_system.Entities
 {
-    internal class CartEntitiy
+    internal class CartEntity
     {
         public List<CartItem> Cart = new List<CartItem>();
 
@@ -15,7 +15,8 @@ namespace Fawry_e_commerce_system.Entities
                 {
                     if (expirable.isExpired())
                     {
-                        Console.WriteLine("====*****This Product Is Expired*****====");
+                        
+                        Console.WriteLine($"====*****{product.Name} Product Is Expired*****====");
                     }
                     else
                     {

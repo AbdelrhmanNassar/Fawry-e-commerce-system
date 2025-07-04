@@ -23,6 +23,11 @@ namespace Fawry_e_commerce_system.Entities
                         DateOnly.TryParse(Console.ReadLine(), out expirationDate);
                     } while (expirationDate < DateOnly.FromDateTime(DateTime.Now));
                 }
+                else
+                {
+                    expirationDate = value;
+                }
+
             }
         }
 

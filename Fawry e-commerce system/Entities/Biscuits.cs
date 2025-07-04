@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Fawry_e_commerce_system.Entities
 {
-    internal class Biscuit : _ProductBase ,IExpirable
+    internal class Biscuits : _ProductBase ,IExpirable
     {
-        public Biscuit(string Name, float Price, int Quantity) : base(Name, Price, Quantity)
+        public Biscuits(string Name, float Price, int Quantity,DateOnly expiredDate) : base(Name, Price, Quantity)
         {
-
+            this.ExpirationDate = expiredDate;
         }
         private DateOnly expirationDate;
         public DateOnly ExpirationDate
@@ -19,14 +19,20 @@ namespace Fawry_e_commerce_system.Entities
             get { return expirationDate; }
             set
             {
+
                 if (value < DateOnly.FromDateTime(DateTime.Now))
                 {
                     do
                     {
-                        Console.Write("It's Already Expired, Add A valid Expiration Date: ");
+                        Console.Write("It's Already Expired, Add A valid Expiration Date (yyyy-mm-dd) : ");
                         DateOnly.TryParse(Console.ReadLine(), out expirationDate);
                     } while (expirationDate < DateOnly.FromDateTime(DateTime.Now));
                 }
+                else
+                {
+                    expirationDate = value;
+                }
+
             }
         }
 

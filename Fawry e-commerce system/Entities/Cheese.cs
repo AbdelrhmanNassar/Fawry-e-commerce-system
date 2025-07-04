@@ -2,11 +2,11 @@
 
 namespace Fawry_e_commerce_system.Entities
 {
-    internal class Chesse : _ProductBase, IShippable,IExpirable
+    internal class Cheese : _ProductBase, IShippable,IExpirable
     {
-        public Chesse(string Name, float Price, int Quantity, float Weight,DateOnly ExpiredDate) : base(Name, Price, Quantity)
+        public Cheese(string Name, float Price, int Quantity, float Weight,DateOnly ExpiredDate) : base(Name, Price, Quantity)
         {
-            this.ExpirationDate = ExpirationDate;
+            this.ExpirationDate = ExpiredDate;
         }
 
         public float weight;
@@ -41,10 +41,15 @@ namespace Fawry_e_commerce_system.Entities
                 {
                     do
                     {
-                        Console.Write("It's Already Expired, Add A valid Expiration Date: ");
+                        Console.Write("It's Already Expired, Add A valid Expiration Date (yyyy-mm-dd): ");
                         DateOnly.TryParse(Console.ReadLine(),out expirationDate);
                     } while (expirationDate < DateOnly.FromDateTime(DateTime.Now));
                 }
+                else
+                {
+                    expirationDate = value;
+                }
+
             }
         }
 
